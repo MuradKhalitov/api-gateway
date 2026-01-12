@@ -1,31 +1,9 @@
-server:
-  port: 8002
-
 spring:
   application:
     name: api-gateway
+  config:
+    import: optional:configserver:http://localhost:8888
   cloud:
-    gateway:
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders:
-              - Authorization
-              - Content-Type
-            allowCredentials: true
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8001/eureka/
+    config:
+      fail-fast: true
 
