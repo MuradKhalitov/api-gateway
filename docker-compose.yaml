@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  api-gateway:
+    container_name: api-gateway
+    restart: always
+    image: api-gateway
+    ports:
+      - "8002:8002"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external: true
